@@ -1,3 +1,4 @@
 module.exports = function render(locals) {
-  return '<html>' + locals.greet + ' from ' + locals.path + '</html>';
+  console.log('locals.assets', locals.assets);
+  return '<html>' + locals.greet + ' from ' + locals.path + ' x</html>';
 };

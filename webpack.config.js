@@ -1,4 +1,7 @@
 const StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin');
+var path = require("path");
+
+var pages = require('./pages');
 
 module.exports = {
 
@@ -6,7 +9,8 @@ module.exports = {
 
   output: {
     filename: 'index.js',
-    path: 'public',
+    path: path.resolve(__dirname, 'public'),
+    publicPath: path.resolve(__dirname, 'public'),
     /* IMPORTANT!
      * You must compile to UMD or CommonJS
      * so it can be required in a Node context: */
@@ -15,16 +19,15 @@ module.exports = {
 
   plugins: [
     new StaticSiteGeneratorPlugin({
-      paths: [
-        '/hello/',
-        '/world/'
-      ],
+      paths: pages,
       locals: {
         // Properties here are merged into `locals`
         // passed to the exported render function
-        greet: 'Hello'
+        greet: 'Greetings'
       }
     })
-  ]
+  ],
+
+  devServer: { inline: false }
 
 };
