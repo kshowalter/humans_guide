@@ -5,10 +5,10 @@ var pages = require('./pages');
 
 module.exports = {
 
-  entry: './index.js',
+  entry: './render.js',
 
   output: {
-    filename: 'index.js',
+    filename: 'render.js',
     path: path.resolve(__dirname, 'public'),
     publicPath: path.resolve(__dirname, 'public'),
     /* IMPORTANT!
